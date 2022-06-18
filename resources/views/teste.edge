@@ -1,0 +1,28 @@
+@layout('layouts/main')
+@set('title', 'Inicio')
+@set('breadcrumb_page', 'Inicio')
+@set('breadcrumb_title', 'Estou na home')
+
+@section('body')
+<p>{{breadcrumb_page}} > Dashboard</p>
+<h1>{{breadcrumb_title}}</h1>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#Id</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Status</th>
+    </tr>
+    
+    @each(usuario in usuarios)
+        <tr>
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.name}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{(usuario.status === 1 ? "Ativo" : "Desativado")}}</td>
+        </tr>
+    @endeach
+</table>
+@end

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="{{ asset('assets/app.css') }}" rel="stylesheet"/>
+    
+</head>
+<body>
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+            @if(auth.isAuthenticated)
+            @include('layouts/aside')
+            @endif
+            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
+                <div class="row">
+                @if(auth.isAuthenticated)
+                    @include('layouts/topbar')
+                @endif
+                </div>
+                <div class="user-dashboard">
+                    @!section('body')
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    @include('components/modal')
+    
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/app.js') }}"></script>
+</body>
+</html>
