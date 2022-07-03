@@ -35,6 +35,10 @@ Route.group(() => {
 
 Route.group(() => {
   Route.get('/dashboard', 'DashboardController.index')
+
+  Route.get('/upload', 'UploadSystemsController.index')
+  Route.post('/upload', 'UploadSystemsController.uploadFiles')
+
 }).middleware(['auth']);
 
 Route.get('/', async ({ view, auth, response }) => {

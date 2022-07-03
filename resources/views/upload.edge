@@ -1,0 +1,19 @@
+@layout('layouts/main')
+@set('title', 'Upload de arquivos')
+@set('breadcrumb_page', 'Inicio')
+@set('breadcrumb_title', 'Upload de arquivos')
+
+@section('body')
+<p>{{breadcrumb_page}} > Dashboard</p>
+<h1>{{breadcrumb_title}}</h1>
+
+
+<form method="POST" action="{{ route('UploadSystemsController.uploadFiles') }}" enctype="multipart/form-data">
+    {{ csrfField() }}
+    <p>
+        <input type="file" name="upload"/>
+    </p>
+
+    <button type="submit">Enviar arquivo</button>
+</form>
+@end
