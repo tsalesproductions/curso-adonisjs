@@ -6,6 +6,17 @@
 @section('body')
 <p>{{breadcrumb_page}} > Dashboard</p>
 <h1>{{breadcrumb_title}}</h1>
+
+@if(session.get('projects'))
+    <h4>Possuimos um total de {{session.get('projects').total}} projetos</h4>
+
+    @each(project in session.get('projects').data)
+      <a href="" style="display: block">{{project.title}}</a>
+    @endeach
+@endif
+
+<hr>
+
 <div class="row">
     <div class="col-md-5 col-sm-5 col-xs-12 gutter">
 

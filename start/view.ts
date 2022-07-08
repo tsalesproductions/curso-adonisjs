@@ -22,5 +22,10 @@ View.global('nav', [
         name: 'Upload de arquivos',
         icon: `<i class="fa fa-upload" aria-hidden="true"></i>`,
         url: '/upload'
+    },
+    {
+        name: 'Logout',
+        icon: `<i class="fa fa-sign-out" aria-hidden="true"></i>`,
+        url: '/auth/logout'
     }
 ]);

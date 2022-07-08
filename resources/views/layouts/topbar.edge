@@ -22,7 +22,7 @@
                 <li>
                     <a href="#" class="icon-info">
                         <i class="fa fa-bell" aria-hidden="true"></i>
-                        <span class="label label-primary">3</span>
+                        <span class="label label-primary">{{(session.get('user_notifications') ? session.get('user_notifications').total : 0)}}</span>
                     </a>
                 </li>
                 <li class="dropdown">

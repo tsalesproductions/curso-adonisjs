@@ -1,5 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
+import Database from '@ioc:Adonis/Lucid/Database';
+import Project from 'App/Models/Project';
 import User from 'App/Models/User';
 
 export default class AuthController {
@@ -19,6 +21,19 @@ export default class AuthController {
 
         try {
             await auth.use('web').attempt(email, password);
+
+            session.put('user_notifications', {
+                total: 10,
+                data: []
+            })
+
+            let projects = await Project.query().select('*');
+
+            session.put('projects', {
+                total: projects.length,
+                data: projects
+            });
+
             return response.redirect('/dashboard');
         } catch (error) {
             console.log(error);
